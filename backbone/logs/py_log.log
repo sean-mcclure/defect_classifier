@@ -1,0 +1,5 @@
+(Category spurious, tensor(2), tensor([1.7152e-04, 8.1377e-04, 9.9901e-01]))
+(Category spurious, tensor(2), tensor([1.7152e-04, 8.1377e-04, 9.9901e-01]))
+(Category spurious, tensor(2), tensor([1.7152e-04, 8.1377e-04, 9.9901e-01]))
+(Category spur, tensor(1), tensor([0.0047, 0.9796, 0.0157]))
+(Category short, tensor(0), tensor([0.8167, 0.0504, 0.1329]))

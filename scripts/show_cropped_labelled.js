@@ -1,19 +1,7 @@
 function show_copped_labelled() {
 az.all_remove_element("container")
-az.all_remove_element("results_title")
 az.all_remove_element("crops_layout")
-az.add_text("main_layout_cells", 4, {
-    "this_class": "results_title",
-    "text": "DEFECTS DETECTED"
-})
-az.style_text("results_title", 1, {
-    "align": "center",
-    "color": "whitesmoke",
-    "font-size": "18px",
-    "margin-bottom" : "30px"
-})
-
-az.add_scrollable_container("main_layout_cells", 4, {
+az.add_scrollable_container("hold_detected", 1, {
     "this_class" : "container",
     "direction" : "vertical"
 })
@@ -34,6 +22,23 @@ az.style_layout("crops_layout", 1, {
     "align": "center",
     "border": 1
 })
+
+full_defect_image = ['differenced_img.png']
+cropped_images = ['0.png', '1.png', '2.png', '3.png', '4.png']
+
+az.call_multiple({
+    "iterations" : cropped_images.length,
+    "function" : function(elem, index) {
+        az.add_image("crops_layout_cells", index +1, {
+            "this_class" : "extracted_defect_img",
+            "image_path" : 'backbone/img/' + cropped_images[index]
+        })
+        az.all_style_image('extracted_defect_img', {
+            "width" : "100%"
+        })
+    }
+})
+
 
 // for now
 az.add_html("tally_layout_cells", 2, {

@@ -76,6 +76,9 @@ az.style_layout("main_layout", 1, {
     "align": "center",
     "border": 3
 })
+az.style_layout("main_layout_cells", 4, {
+    "valign" : "top"
+})
 az.style_layout("main_layout_rows", 1, {
     "height" : "60px"
 })
@@ -96,40 +99,104 @@ az.all_style_text("header", {
     "color": "whitesmoke",
     "font-size": "20px"
 })
+az.add_text("main_layout_cells", 4, {
+    "this_class": "results_title",
+    "text": "DETECTED DEFECTS"
+})
+
+az.add_html("main_layout_cells", 4, {
+    "html" : "<div class='hold_detected'></div>"
+})
+az.add_text("main_layout_cells", 4, {
+    "this_class": "results_title",
+    "text": "CLASSIFIED DEFECTS"
+})
+az.all_style_text("results_title", {
+    "align": "center",
+    "color": "whitesmoke",
+    "font-size": "18px",
+    "margin-bottom" : "30px",
+    "margin-top" : "20px"
+})
 az.add_button("banner_layout_cells", 1, {
-    "this_class" : "fetch_img_button",
+    "this_class" : "option_butts",
     "text" : "FETCH"
 })
 az.add_button("banner_layout_cells", 1, {
-    "this_class" : "run_classifier_button",
-    "text" : "RUN CLASSIFIER"
+    "this_class" : "option_butts",
+    "text" : "DETECT"
 })
-az.style_button("fetch_img_button", 1, {
+az.add_button("banner_layout_cells", 1, {
+    "this_class" : "option_butts",
+    "text" : "CLASSIFY"
+})
+az.all_style_button("option_butts", {
     "background" : "gold",
     "color" : "black",
+    "margin" : "4px",
     "outline" : 0
 })
-az.style_button("run_classifier_button", 1, {
-    "background" : "#ff5252",
-    "color" : "white",
-    "margin-left" : "10px",
-    "outline" : 0
+az.style_button("option_butts", 2, {
+    "background" : "#706fd3",
+    "color" : "white"
+})
+az.style_button("option_butts", 3, {
+    "background" : "#33d9b2"
 })
 
-az.add_event("fetch_img_button", 1, {
+az.add_event("option_butts", 1, {
     "type" : "click",
     "function" : function() {
-        az.animate_element("fetch_img_button", 1, {
+        az.animate_element("option_butts", 1, {
             "type" : "spin"
         })
         fetch_image()
     }
 })
 
-az.add_event("run_classifier_button", 1, {
+az.add_event("option_butts", 2, {
     "type" : "click",
     "function" : function() {
-        az.animate_element("run_classifier_button", 1, {
+        az.animate_element("option_butts", 2, {
+            "type" : "spin"
+        })
+        image_1_source = az.get_property("show_img", 1, {
+            "property" : "src"
+        })
+        image_2_source = az.get_property("show_img", 2, {
+            "property" : "src"
+        })
+        convert_image_to_data(image_1_source)
+
+        az.call_once_satisfied({
+            "condition" : "typeof(az.hold_value.data_url) !== 'undefined'",
+            "function" : function() {
+                 difference_images('test_image.png', az.hold_value.data_url)
+            }
+        })
+/*
+        setTimeout(function() {
+
+        convert_image_to_data(image_2_source)
+
+        az.call_once_satisfied({
+            "condition" : "typeof(az.hold_value.data_url) !== 'undefined'",
+            "function" : function() {
+                 difference_images('template_image.jpg', az.hold_value.data_url)
+            }
+        })
+
+        }, 2000)
+        */
+
+
+    }
+})
+
+az.add_event("option_butts", 3, {
+    "type" : "click",
+    "function" : function() {
+        az.animate_element("option_butts", 3, {
             "type" : "spin"
         })
 show_copped_labelled()
