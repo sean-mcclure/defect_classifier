@@ -77,10 +77,10 @@ az.style_layout("main_layout", 1, {
     "border": 3
 })
 az.style_layout("main_layout_cells", 4, {
-    "valign" : "top"
+    "valign": "center"
 })
 az.style_layout("main_layout_rows", 1, {
-    "height" : "60px"
+    "height": "60px"
 })
 az.add_text("main_layout_cells", 1, {
     "this_class": "header",
@@ -88,7 +88,7 @@ az.add_text("main_layout_cells", 1, {
 })
 az.add_text("main_layout_cells", 2, {
     "this_class": "header",
-    "text": "ACTUAL"
+    "text": "TEST"
 })
 az.add_text("main_layout_cells", 3, {
     "this_class": "header",
@@ -99,128 +99,111 @@ az.all_style_text("header", {
     "color": "whitesmoke",
     "font-size": "20px"
 })
-az.add_text("main_layout_cells", 4, {
-    "this_class": "results_title",
-    "text": "DETECTED DEFECTS"
-})
-
 az.add_html("main_layout_cells", 4, {
-    "html" : "<div class='hold_detected'></div>"
+    "html": "<div class='hold_detected'></div>"
 })
-az.add_text("main_layout_cells", 4, {
-    "this_class": "results_title",
-    "text": "CLASSIFIED DEFECTS"
+az.add_scrollable_container("hold_detected", 1, {
+    "this_class": "container",
+    "direction": "vertical"
 })
-az.all_style_text("results_title", {
+az.style_scrollable_container("container", 1, {
     "align": "center",
-    "color": "whitesmoke",
-    "font-size": "18px",
-    "margin-bottom" : "30px",
-    "margin-top" : "20px"
+    "width": "90%",
+    "height": "300px",
+    "background": "#5e6e88",
+    "border-radius": "6px",
+    "border": "1px solid white"
 })
 az.add_button("banner_layout_cells", 1, {
-    "this_class" : "option_butts",
-    "text" : "FETCH"
+    "this_class": "option_butts",
+    "text": "FETCH"
 })
 az.add_button("banner_layout_cells", 1, {
-    "this_class" : "option_butts",
-    "text" : "DETECT"
+    "this_class": "option_butts",
+    "text": "DETECT"
 })
 az.add_button("banner_layout_cells", 1, {
-    "this_class" : "option_butts",
-    "text" : "CLASSIFY"
+    "this_class": "option_butts",
+    "text": "CLASSIFY"
 })
 az.all_style_button("option_butts", {
-    "background" : "gold",
-    "color" : "black",
-    "margin" : "4px",
-    "outline" : 0
+    "background": "gold",
+    "color": "black",
+    "margin": "4px",
+    "outline": 0
 })
 az.style_button("option_butts", 2, {
-    "background" : "#706fd3",
-    "color" : "white"
+    "background": "#706fd3",
+    "color": "white"
 })
 az.style_button("option_butts", 3, {
-    "background" : "#33d9b2"
+    "background": "#33d9b2"
 })
-
 az.add_event("option_butts", 1, {
-    "type" : "click",
-    "function" : function() {
+    "type": "click",
+    "function": function() {
         az.animate_element("option_butts", 1, {
-            "type" : "spin"
+            "type": "spin"
         })
         fetch_image()
     }
 })
-
 az.add_event("option_butts", 2, {
-    "type" : "click",
-    "function" : function() {
+    "type": "click",
+    "function": function() {
         az.animate_element("option_butts", 2, {
-            "type" : "spin"
+            "type": "spin"
         })
-        image_1_source = az.get_property("show_img", 1, {
-            "property" : "src"
-        })
-        image_2_source = az.get_property("show_img", 2, {
-            "property" : "src"
-        })
-        convert_image_to_data(image_1_source)
-
-        az.call_once_satisfied({
-            "condition" : "typeof(az.hold_value.data_url) !== 'undefined'",
-            "function" : function() {
-                 difference_images('test_image.png', az.hold_value.data_url)
-            }
-        })
-/*
-        setTimeout(function() {
-
-        convert_image_to_data(image_2_source)
-
-        az.call_once_satisfied({
-            "condition" : "typeof(az.hold_value.data_url) !== 'undefined'",
-            "function" : function() {
-                 difference_images('template_image.jpg', az.hold_value.data_url)
-            }
-        })
-
-        }, 2000)
-        */
-
-
+        difference_images()
     }
 })
-
 az.add_event("option_butts", 3, {
-    "type" : "click",
-    "function" : function() {
+    "type": "click",
+    "function": function() {
         az.animate_element("option_butts", 3, {
-            "type" : "spin"
+            "type": "spin"
         })
-show_copped_labelled()
+        az.call_multiple({
+            "iterations": cropped_images.length,
+            "function": function(elem, index) {
+                image_path = az.get_property('extracted_defect_img', index + 1, {
+                    "property": "src"
+                })
+                image_path_f = 'img' + az.get_everything_after(image_path, 'img')
+                predict_defects(image_path_f)
+            }
+        })
     }
 })
-
+az.add_layout("banner_layout_cells", 3, {
+    "this_class": "loading_layout",
+    "row_class": "loading_layout_rows",
+    "cell_class": "loading_layout_cells",
+    "number_of_rows": 1,
+    "number_of_columns": 6
+})
+az.style_layout("loading_layout", 1, {
+    "width" : "auto",
+    "height" : "40px",
+    "position" : "absolute",
+    "border": 0
+})
 az.add_icon("banner_layout_cells", 3, {
-    "this_class" : "settings_icon",
-    "icon_class" : "fa-cog"
+    "this_class": "settings_icon",
+    "icon_class": "fa-cog"
 })
 az.style_icon("settings_icon", 1, {
-    "color" : "white",
-    "float" : "right",
-    "font-size" : "30px",
-    "cursor" : "pointer"
+    "color": "white",
+    "float": "right",
+    "font-size": "30px",
+    "cursor": "pointer"
 })
 az.add_event("settings_icon", 1, {
-    "type" : "click",
-    "function" : function() {
+    "type": "click",
+    "function": function() {
         pop_settings()
-
     }
 })
-
 az.add_layout("my_sections", 2, {
     "this_class": "tally_layout",
     "row_class": "tally_layout_rows",
@@ -232,25 +215,21 @@ az.style_layout("tally_layout", 1, {
     "width": "100%",
     "height": "150px",
     "align": "center",
-    "margin-top" : "10px",
-    "column_widths" : ['10%', '90%'],
+    "margin-top": "10px",
+    "column_widths": ['10%', '90%'],
     "border": 0
 })
 az.call_multiple({
-    "iterations" : 3,
-    "function" : function(elem, index) {
-az.add_icon("tally_layout_cells", (index*2) + 1, {
-            "this_class" : "tally_icons",
-            "icon_class" : "fa-cogs"
+    "iterations": 3,
+    "function": function(elem, index) {
+        az.add_icon("tally_layout_cells", (index * 2) + 1, {
+            "this_class": "tally_icons",
+            "icon_class": "fa-cogs"
         })
         az.all_style_icon("tally_icons", {
-            "align" : "center",
-            "font-size" : "30px",
-            "color" : "white"
+            "align": "center",
+            "font-size": "30px",
+            "color": "white"
         })
     }
-    })
-
-
-
-
+})
