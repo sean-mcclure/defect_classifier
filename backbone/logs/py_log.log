@@ -1,103 +1,21 @@
-(Category spur, tensor(1), tensor([0.1426, 0.8544, 0.0031]))
-(Category short, tensor(0), tensor([0.7928, 0.2025, 0.0047]))
-(Category spur, tensor(1), tensor([0.0696, 0.9269, 0.0035]))
-(Category spur, tensor(1), tensor([0.0436, 0.9497, 0.0066]))
-(Category spurious, tensor(2), tensor([4.1843e-05, 2.9499e-04, 9.9966e-01]))
 True
 True
-(Category spurious, tensor(2), tensor([4.1843e-05, 2.9499e-04, 9.9966e-01]))
-(Category short, tensor(0), tensor([0.7928, 0.2025, 0.0047]))
-(Category spur, tensor(1), tensor([0.1426, 0.8544, 0.0031]))
-(Category spur, tensor(1), tensor([0.0436, 0.9497, 0.0066]))
-(Category spur, tensor(1), tensor([0.0696, 0.9269, 0.0035]))
+[(Category spur, tensor(2), tensor([0.1538, 0.0048, 0.8105, 0.0309])), (Category spurious, tensor(3), tensor([4.1575e-05, 9.8539e-06, 2.7951e-03, 9.9715e-01])), (Category not_defect, tensor(0), tensor([9.0959e-01, 4.9001e-02, 7.9175e-04, 4.0618e-02])), (Category spur, tensor(2), tensor([0.1026, 0.0091, 0.8822, 0.0061])), (Category not_defect, tensor(0), tensor([0.9027, 0.0379, 0.0463, 0.0131]))]
 True
 True
-(Category spur, tensor(1), tensor([0.0436, 0.9497, 0.0066]))
-(Category spurious, tensor(2), tensor([4.1843e-05, 2.9499e-04, 9.9966e-01]))
-(Category spur, tensor(1), tensor([0.0696, 0.9269, 0.0035]))
-(Category spur, tensor(1), tensor([0.1426, 0.8544, 0.0031]))
-(Category short, tensor(0), tensor([0.7928, 0.2025, 0.0047]))
-(Category spur, tensor(1), tensor([0.0436, 0.9497, 0.0066]))
-(Category spurious, tensor(2), tensor([4.1843e-05, 2.9499e-04, 9.9966e-01]))
-(Category spur, tensor(1), tensor([0.0696, 0.9269, 0.0035]))
-(Category short, tensor(0), tensor([0.7928, 0.2025, 0.0047]))
-(Category spur, tensor(1), tensor([0.1426, 0.8544, 0.0031]))
+[(Category spur, tensor(2), tensor([0.1538, 0.0048, 0.8105, 0.0309])), (Category spurious, tensor(3), tensor([4.1575e-05, 9.8539e-06, 2.7951e-03, 9.9715e-01])), (Category not_defect, tensor(0), tensor([9.0959e-01, 4.9001e-02, 7.9175e-04, 4.0618e-02])), (Category spur, tensor(2), tensor([0.1026, 0.0091, 0.8822, 0.0061])), (Category not_defect, tensor(0), tensor([0.9027, 0.0379, 0.0463, 0.0131]))]
 True
 True
-(Category spur, tensor(1), tensor([0.0696, 0.9269, 0.0035]))
-(Category short, tensor(0), tensor([0.7928, 0.2025, 0.0047]))
-(Category spurious, tensor(2), tensor([4.1843e-05, 2.9499e-04, 9.9966e-01]))
-(Category spur, tensor(1), tensor([0.0436, 0.9497, 0.0066]))
-(Category spur, tensor(1), tensor([0.1426, 0.8544, 0.0031]))
-True
-True
-(Category spur, tensor(1), tensor([0.0696, 0.9269, 0.0035]))
-(Category spurious, tensor(2), tensor([4.1843e-05, 2.9499e-04, 9.9966e-01]))
-(Category short, tensor(0), tensor([0.7928, 0.2025, 0.0047]))
-(Category spur, tensor(1), tensor([0.0436, 0.9497, 0.0066]))
-(Category spur, tensor(1), tensor([0.1426, 0.8544, 0.0031]))
-True
-True
-True
-True
-True
-True
+[(Category spur, tensor(2), tensor([0.1538, 0.0048, 0.8105, 0.0309])), (Category spurious, tensor(3), tensor([4.1575e-05, 9.8539e-06, 2.7951e-03, 9.9715e-01])), (Category not_defect, tensor(0), tensor([9.0959e-01, 4.9001e-02, 7.9175e-04, 4.0618e-02])), (Category spur, tensor(2), tensor([0.1026, 0.0091, 0.8822, 0.0061])), (Category not_defect, tensor(0), tensor([0.9027, 0.0379, 0.0463, 0.0131]))]
 True
 libpng warning: Image width is zero in IHDR
 libpng error: Invalid IHDR data
 True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-Traceback (most recent call last):
-  File "bridge_point.py", line 10, in <module>
-    result = eval(function_choice)
-  File "<string>", line 1, in <module>
-  File "/Users/seanmcclure/PycharmProjects/defect_classifier/backbone/image_differencing.py", line 11, in image_differencing
-    Conv_hsv_Gray = cv2.cvtColor(difference, cv2.COLOR_BGR2GRAY)
-cv2.error: OpenCV(4.1.1) /Users/travis/build/skvark/opencv-python/opencv/modules/imgproc/src/color.cpp:182: error: (-215:Assertion failed) !_src.empty() in function 'cvtColor'
-
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
-True
 libpng warning: Image height is zero in IHDR
 libpng error: Invalid IHDR data
+True
+True
+[(Category spur, tensor(2), tensor([0.1538, 0.0048, 0.8105, 0.0309])), (Category spurious, tensor(3), tensor([4.1575e-05, 9.8539e-06, 2.7951e-03, 9.9715e-01])), (Category spurious, tensor(3), tensor([1.8708e-05, 5.4838e-05, 2.5735e-03, 9.9735e-01])), (Category not_defect, tensor(0), tensor([5.4718e-01, 2.3366e-01, 2.1868e-01, 4.7318e-04])), (Category not_defect, tensor(0), tensor([0.9251, 0.0097, 0.0490, 0.0162]))]
+True
+True
+[(Category spur, tensor(2), tensor([0.1538, 0.0048, 0.8105, 0.0309])), (Category spurious, tensor(3), tensor([4.1575e-05, 9.8539e-06, 2.7951e-03, 9.9715e-01])), (Category spurious, tensor(3), tensor([1.8708e-05, 5.4838e-05, 2.5735e-03, 9.9735e-01])), (Category not_defect, tensor(0), tensor([5.4718e-01, 2.3366e-01, 2.1868e-01, 4.7318e-04])), (Category not_defect, tensor(0), tensor([0.9251, 0.0097, 0.0490, 0.0162]))]

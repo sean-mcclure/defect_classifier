@@ -16,6 +16,7 @@ function fetch_image() {
     az.all_style_image("show_img", {
         "align" : "center",
         "width" : "80%",
-        "border-radius" : "4px"
+        "border-radius" : "4px",
+        "border" : "1px solid gold"
     })
 }

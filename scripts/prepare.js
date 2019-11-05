@@ -13,13 +13,17 @@ az.style_button("to_top_button", 1, {
 })
 az.add_sections({
     "this_class": "my_sections",
-    "sections": 2
+    "sections": 3
 })
 az.style_sections('my_sections', 1, {
     "background": "#222f3e",
     "height": "auto"
 })
 az.style_sections('my_sections', 2, {
+    "background": "#222f3e",
+    "height": "auto"
+})
+az.style_sections('my_sections', 3, {
     "background": "#222f3e",
     "height": "auto"
 })
@@ -56,7 +60,7 @@ az.call_once_satisfied({
 })
 az.add_text("banner_layout_cells", 2, {
     "this_class": "title",
-    "text": "DEFECT CLASSIFIER"
+    "text": "PCB DEFECT CLASSIFIER"
 })
 az.style_text("title", 1, {
     "align": "center",
@@ -112,29 +116,26 @@ az.style_scrollable_container("container", 1, {
     "height": "300px",
     "background": "#5e6e88",
     "border-radius": "6px",
-    "border": "1px solid white"
+    "border": "1px solid gold"
 })
 az.add_button("banner_layout_cells", 1, {
     "this_class": "option_butts",
-    "text": "FETCH"
+    "text": "FETCH BOARDS"
 })
 az.add_button("banner_layout_cells", 1, {
     "this_class": "option_butts",
-    "text": "DETECT"
+    "text": "RUN PIPELINE"
 })
-az.add_button("banner_layout_cells", 1, {
-    "this_class": "option_butts",
-    "text": "CLASSIFY"
-})
-az.all_style_button("option_butts", {
-    "background": "gold",
-    "color": "black",
-    "margin": "4px",
-    "outline": 0
+az.style_button("option_butts", 1, {
+    "background" : "gold",
+    "color" : "black",
+    "outline" : 0
 })
 az.style_button("option_butts", 2, {
-    "background": "#706fd3",
-    "color": "white"
+    "margin-left" : "10px",
+    "background" : "rgb(94, 110, 136)",
+    "border" : "1px solid gold",
+    "outline" : 0
 })
 az.style_button("option_butts", 3, {
     "background": "#33d9b2"
@@ -157,30 +158,12 @@ az.add_event("option_butts", 2, {
         difference_images()
     }
 })
-az.add_event("option_butts", 3, {
-    "type": "click",
-    "function": function() {
-        az.animate_element("option_butts", 3, {
-            "type": "spin"
-        })
-        az.call_multiple({
-            "iterations": cropped_images.length,
-            "function": function(elem, index) {
-                image_path = az.get_property('extracted_defect_img', index + 1, {
-                    "property": "src"
-                })
-                image_path_f = 'img' + az.get_everything_after(image_path, 'img')
-                predict_defects(image_path_f)
-            }
-        })
-    }
-})
 az.add_layout("banner_layout_cells", 3, {
     "this_class": "loading_layout",
     "row_class": "loading_layout_rows",
     "cell_class": "loading_layout_cells",
     "number_of_rows": 1,
-    "number_of_columns": 6
+    "number_of_columns": 10
 })
 az.style_layout("loading_layout", 1, {
     "width" : "auto",
@@ -233,3 +216,14 @@ az.call_multiple({
         })
     }
 })
+az.add_text('my_sections', 3, {
+            "this_class": "footer_text",
+            "text": "&#169; 2018-2019 Kedion.ai / All rights reserved"
+        })
+        az.style_text('footer_text', 1, {
+            "color": "whitesmoke",
+            "font-size": "14px",
+            "margin-left": "-160px",
+            "font-family": "arial",
+            "align": "center"
+        })
