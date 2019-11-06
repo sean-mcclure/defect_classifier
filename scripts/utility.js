@@ -15,7 +15,7 @@ function loading_display() {
                 "margin": "4px",
                 "display": "inline-block"
             })
-            if(load_cnt == az.get_cell_count('loading_layout', 1)) {
+            if (load_cnt == az.get_cell_count('loading_layout', 1)) {
                 load_cnt = 0
                 az.all_remove_element('added_load')
             }

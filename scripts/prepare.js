@@ -13,19 +13,13 @@ az.style_button("to_top_button", 1, {
 })
 az.add_sections({
     "this_class": "my_sections",
-    "sections": 3
+    "sections": 2
 })
-az.style_sections('my_sections', 1, {
+az.all_style_sections('my_sections', {
     "background": "#222f3e",
-    "height": "auto"
-})
-az.style_sections('my_sections', 2, {
-    "background": "#222f3e",
-    "height": "auto"
-})
-az.style_sections('my_sections', 3, {
-    "background": "#222f3e",
-    "height": "auto"
+    "height": "auto",
+    "max-width": "1100px",
+    "min-width": "1100px"
 })
 az.add_layout("my_sections", 1, {
     "this_class": "banner_layout",
@@ -127,15 +121,15 @@ az.add_button("banner_layout_cells", 1, {
     "text": "RUN PIPELINE"
 })
 az.style_button("option_butts", 1, {
-    "background" : "gold",
-    "color" : "black",
-    "outline" : 0
+    "background": "gold",
+    "color": "black",
+    "outline": 0
 })
 az.style_button("option_butts", 2, {
-    "margin-left" : "10px",
-    "background" : "rgb(94, 110, 136)",
-    "border" : "1px solid gold",
-    "outline" : 0
+    "margin-left": "10px",
+    "background": "rgb(94, 110, 136)",
+    "border": "1px solid gold",
+    "outline": 0
 })
 az.style_button("option_butts", 3, {
     "background": "#33d9b2"
@@ -166,9 +160,9 @@ az.add_layout("banner_layout_cells", 3, {
     "number_of_columns": 10
 })
 az.style_layout("loading_layout", 1, {
-    "width" : "auto",
-    "height" : "40px",
-    "position" : "absolute",
+    "width": "auto",
+    "height": "40px",
+    "position": "absolute",
     "border": 0
 })
 az.add_icon("banner_layout_cells", 3, {
@@ -192,38 +186,28 @@ az.add_layout("my_sections", 2, {
     "row_class": "tally_layout_rows",
     "cell_class": "tally_layout_cells",
     "number_of_rows": 3,
-    "number_of_columns": 2
+    "number_of_columns": 3
 })
 az.style_layout("tally_layout", 1, {
     "width": "100%",
     "height": "150px",
     "align": "center",
     "margin-top": "10px",
-    "column_widths": ['10%', '90%'],
-    "border": 0
+    "column_widths": ['10%', '80%', '10%'],
+    "border": 1
 })
+az.hold_value.defects = ['SPUR', 'SPURIOUS', 'SHORT']
 az.call_multiple({
-    "iterations": 3,
+    "iterations": az.hold_value.defects.length,
     "function": function(elem, index) {
-        az.add_icon("tally_layout_cells", (index * 2) + 1, {
-            "this_class": "tally_icons",
-            "icon_class": "fa-cogs"
+        az.add_text("tally_layout_cells", (index * 3) + 1, {
+            "this_class": "defect_title_f",
+            "text": az.hold_value.defects[index]
         })
-        az.all_style_icon("tally_icons", {
+        az.all_style_text("defect_title_f", {
             "align": "center",
-            "font-size": "30px",
+            "font-size": "20px",
             "color": "white"
         })
     }
 })
-az.add_text('my_sections', 3, {
-            "this_class": "footer_text",
-            "text": "&#169; 2018-2019 Kedion.ai / All rights reserved"
-        })
-        az.style_text('footer_text', 1, {
-            "color": "whitesmoke",
-            "font-size": "14px",
-            "margin-left": "-160px",
-            "font-family": "arial",
-            "align": "center"
-        })

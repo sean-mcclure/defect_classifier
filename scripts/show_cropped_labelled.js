@@ -53,21 +53,4 @@ function show_copped_labelled() {
             })
         }
     })
-    // for now
-    az.add_html("tally_layout_cells", 2, {
-        "html": "<div class='added_tally'></div>"
-    })
-    az.add_html("tally_layout_cells", 4, {
-        "html": "<div class='added_tally'></div>"
-    })
-    az.add_html("tally_layout_cells", 6, {
-        "html": "<div class='added_tally'></div>"
-    })
-    az.all_style_html("added_tally", {
-        "width": "30px",
-        "height": "30px",
-        "background": "gold",
-        "margin": "4px",
-        "display": "inline-block"
-    })
 }

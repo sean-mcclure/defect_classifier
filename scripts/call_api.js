@@ -51,8 +51,14 @@ function predict_defects() {
                     actual_preds.push(prediction)
                 }
             })
+            actual_preds_clean = []
+            az.loop_array({
+                "function": "elem.replace(' ', '')",
+                "array": actual_preds,
+                "new_array": actual_preds_clean
+            })
             use_index = -1
-            actual_preds.forEach(function(elem) {
+            actual_preds_clean.forEach(function(elem) {
                 use_index++
                 az.add_text("crops_layout_cells", (use_index * 2) + 2, {
                     "this_class": "show_prediction",
@@ -63,6 +69,9 @@ function predict_defects() {
                     "font-family": "Staatliches",
                     "font0suze": "18px",
                     "align": "center"
+                })
+                add_tally({
+                    "type": elem
                 })
             })
             stop_load_display()
