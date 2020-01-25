@@ -13,9 +13,10 @@
   "keywords": [
     "defect",
     "deep",
-    "learning"
+    "learning",
+    "PCB"
   ],
-  "author": "sean mcclure (kedion)",
+  "author": "Sean McClure",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sean-mcclure/defect_classifier/issues"
