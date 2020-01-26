@@ -38,13 +38,13 @@ function show_copped_labelled() {
         "column_widths": ['50%', '50%'],
         "border": 1
     })
-    cropped_images = ['0.png', '1.png', '2.png', '3.png', '4.png']
+    cropped_images = ['contour_0.png', 'contour_1.png', 'contour_2.png', 'contour_3.png', 'contour_4.png']
     az.call_multiple({
         "iterations": cropped_images.length,
         "function": function(elem, index) {
             az.add_image("crops_layout_cells", (index * 2) + 1, {
                 "this_class": "extracted_defect_img",
-                "image_path": 'backbone/img/' + cropped_images[index]
+                "image_path": '../contours/' + cropped_images[index]
             })
             az.all_style_image('extracted_defect_img', {
                 "width": "60%",

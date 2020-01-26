@@ -1,7 +1,7 @@
 function difference_images() {
     loading_display()
-    image_path_1 = '../' + az.hold_value.img_path_template
-    image_path_2 = '../' + az.hold_value.img_path_test
+    image_path_1 = $('.show_img').eq(0).attr('src').replace('../', '')
+    image_path_2 = $('.show_img').eq(1).attr('src').replace('../', '')
     params = {
         "function_choice": "image_differencing('" + image_path_1 + "','" + image_path_2 + "')"
     }
@@ -18,7 +18,7 @@ function difference_images() {
 
     function get_defects() {
         params = {
-            "function_choice": "extract_defects_using_contours('img/differenced_img.png')"
+            "function_choice": "extract_defects_using_contours('diff_img/diff.png')"
         }
         az.call_api({
             "url": "http://localhost:9090/api/",
@@ -35,7 +35,7 @@ function difference_images() {
 }
 
 function predict_defects() {
-    cropped_images = cropped_images.map(i => 'img/' + i);
+    cropped_images = cropped_images.map(i => 'contours/' + i);
     params = {
         "function_choice": "predict_all(" + JSON.stringify(cropped_images) + ")"
     }

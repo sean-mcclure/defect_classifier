@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
 	res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
 	res.setHeader('Access-Control-Allow-Credentials', true);
-	var process = spawn('python', ["bridge_point.py", req.query.function_choice]);
+	var process = spawn('python', ["python/bridge_point.py", req.query.function_choice]);
 		process.stdout.once('data', function(data) {
 			console.log(req.query)
 			res.json({

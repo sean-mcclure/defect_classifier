@@ -5,7 +5,7 @@ from fastai.vision import *
 import json
 
 def classifier(image_path):
-    learn = load_learner('data')
+    learn = load_learner('model')
     img = open_image(image_path)
     prediction = learn.predict(img)
     return prediction
