@@ -38,7 +38,14 @@ function show_copped_labelled() {
         "column_widths": ['50%', '50%'],
         "border": 1
     })
-    cropped_images = ['contour_0.png', 'contour_1.png', 'contour_2.png', 'contour_3.png', 'contour_4.png']
+/*
+    cropped_images = []
+    for(i=0;i<200;i++) {
+        cropped_images.push("contour_" + i)
+    }
+    */
+
+    cropped_images = ['contour_0.png', 'contour_1.png', 'contour_2.png']
     az.call_multiple({
         "iterations": cropped_images.length,
         "function": function(elem, index) {
