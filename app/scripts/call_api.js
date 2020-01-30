@@ -7,7 +7,7 @@ function difference_images() {
         "function": "image_differencing",
         "image_path_1": image_path_1,
         "image_path_2": image_path_2,
-        "id" : az.hold_value.current_run_id
+        "id": az.hold_value.current_run_id
     }
     az.call_api({
         "url": "http://localhost:5000/call_function/",
@@ -24,7 +24,7 @@ function difference_images() {
         params = {
             "function": "extract_defects_using_contours",
             "path_to_diff": "diff_img/diff_" + az.hold_value.current_run_id + ".png",
-            "id" : az.hold_value.current_run_id
+            "id": az.hold_value.current_run_id
         }
         az.call_api({
             "url": "http://localhost:5000/call_function/",
@@ -32,7 +32,7 @@ function difference_images() {
             "done": function(data) {
                 show_copped_labelled(az.hold_value.current_run_id) // once defects have been extracted display in app, then run predictions...
                 setTimeout(function() {
-                predict_defects()
+                    predict_defects()
                 }, 2000)
             },
             "fail": function(err) {
@@ -115,7 +115,7 @@ function remove_contours() {
 function count_contours(id) {
     params = {
         "function": "count_contours",
-        "path" : id
+        "path": id
     }
     az.call_api({
         "url": "http://localhost:5000/call_function/",
