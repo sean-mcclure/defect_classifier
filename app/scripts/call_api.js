@@ -1,7 +1,7 @@
 function difference_images() {
     loading_display()
-    image_path_1 = $('.show_img').eq(0).attr('src').replace('../', '')
-    image_path_2 = $('.show_img').eq(1).attr('src').replace('../', '')
+    image_path_2 = $('.show_img').eq(0).attr('src').replace('../', '')
+    image_path_1 = $('.show_img').eq(1).attr('src').replace('../', '')
     params = {
         "function": "image_differencing",
         "image_path_1": image_path_1,
@@ -65,6 +65,9 @@ function predict_defects() {
                     add_tally({
                         "type": type
                     })
+                    if(pred_cnt === (cropped_images.length - 1)) {
+                        stop_load_display()
+                    }
                 },
                 "fail": function(err) {
                     console.log(err)
