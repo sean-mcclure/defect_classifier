@@ -129,7 +129,9 @@ az.style_button("option_butts", 2, {
     "margin-left": "10px",
     "background": "rgb(94, 110, 136)",
     "border": "1px solid gold",
-    "outline": 0
+    "outline": 0,
+            "opacity" : 0.5,
+            "pointer-events" : "none"
 })
 az.style_button("option_butts", 3, {
     "background": "#33d9b2"
@@ -141,6 +143,14 @@ az.add_event("option_butts", 1, {
             "type": "spin"
         })
         fetch_image()
+        az.remove_element("crops_layout_header", 1)
+        az.remove_element("crops_layout", 1)
+        az.style_button("option_butts", 2, {
+            "opacity" : 1,
+            "pointer-events" : "auto"
+        })
+        //remove_diff_img()
+        //remove_contours()
     }
 })
 az.add_event("option_butts", 2, {
@@ -150,6 +160,10 @@ az.add_event("option_butts", 2, {
             "type": "spin"
         })
         difference_images()
+        az.style_button("option_butts", 2, {
+            "opacity" : 0.5,
+            "pointer-events" : "none"
+        })
     }
 })
 az.add_layout("banner_layout_cells", 3, {
