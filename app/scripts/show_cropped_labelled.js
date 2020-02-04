@@ -42,7 +42,6 @@ function show_copped_labelled(id) {
                 "column_widths": ['50%', '50%'],
                 "border": 1
             })
-            alert('az.hold_value.current_contours_cnt: ' + az.hold_value.current_contours_cnt)
             cont_or = az.create_array(1, az.hold_value.current_contours_cnt, "contour_")
             az.hold_value.cropped_images = []
             cont_or.forEach(function(elem, i) {

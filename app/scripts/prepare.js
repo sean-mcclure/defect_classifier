@@ -130,8 +130,8 @@ az.style_button("option_butts", 2, {
     "background": "rgb(94, 110, 136)",
     "border": "1px solid gold",
     "outline": 0,
-            "opacity" : 0.5,
-            "pointer-events" : "none"
+    "opacity" : 0.5,
+    "pointer-events" : "none"
 })
 az.style_button("option_butts", 3, {
     "background": "#33d9b2"
@@ -149,8 +149,6 @@ az.add_event("option_butts", 1, {
             "opacity" : 1,
             "pointer-events" : "auto"
         })
-        //remove_diff_img()
-        //remove_contours()
     }
 })
 az.add_event("option_butts", 2, {

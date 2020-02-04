@@ -47,7 +47,6 @@ function predict_defects() {
         "condition": "typeof(az.hold_value.cropped_images) !== 'undefined'",
         "function": function() {
             cropped_images = az.hold_value.cropped_images.map(i => 'contours/' + az.hold_value.current_run_id + '/' + i);
-            alert(az.hold_value.cropped_images)
             pred_cnt = -1
             az.delay_multiple({
                 "iterations": cropped_images.length,
