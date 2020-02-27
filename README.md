@@ -29,6 +29,5 @@ See the [Medium article](https://towardsdatascience.com/building-an-end-to-end-d
 
 ![enter image description here](https://collaboratescience.com/stack/defect_classifier.gif)
 
-
 ## SUPPORT
 If you need help modifying this application for your specific purposes please contact Sean McClure.
