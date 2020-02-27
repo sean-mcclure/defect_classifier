@@ -16,7 +16,6 @@ def string_to_number(str):
     res = str
   return(res)
 
-app = Flask(__name__)
 
 @app.after_request
 def add_headers(response):
