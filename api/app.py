@@ -4,6 +4,8 @@ from image_differencing import *
 from classifier import *
 from utility import *
 
+app = Flask(__name__)
+
 def string_to_number(str):
   if("." in str):
     try:
