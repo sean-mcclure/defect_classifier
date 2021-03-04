@@ -1,0 +1,5 @@
+flask
+opencv-python-headless
+git+https://github.com/sean-mcclure/tetryon_ai.git
+fastai
+flask_cors

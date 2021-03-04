@@ -10,8 +10,9 @@ function difference_images() {
         "id": az.hold_value.current_run_id
     }
     az.call_api({
-        "url": "http://localhost:5000/call_function/",
+        "url": az.hold_value.config.api_url + "/call_function/",
         "parameters": params,
+        "type" : "GET",
         "done": function() {
             get_defects() // once images have been differenced extract defects using contours
         },
@@ -27,8 +28,9 @@ function difference_images() {
             "id": az.hold_value.current_run_id
         }
         az.call_api({
-            "url": "http://localhost:5000/call_function/",
+            "url": az.hold_value.config.api_url + "/call_function/",
             "parameters": params,
+            "type" : "GET",
             "done": function(data) {
                 show_copped_labelled(az.hold_value.current_run_id) // once defects have been extracted display in app, then run predictions...
                 setTimeout(function() {
@@ -58,8 +60,9 @@ function predict_defects() {
                         "image_path": cropped_images[pred_cnt]
                     }
                     az.call_api({
-                        "url": "http://localhost:5000/call_function/",
+                        "url": az.hold_value.config.api_url + "/call_function/",
                         "parameters": params,
+                        "type" : "GET",
                         "done": function(data) {
                             type = az.get_everything_between(data, 'Category', ', tensor')
                             az.add_text("crops_layout_cells", (pred_cnt * 2) + 2, {
@@ -92,7 +95,8 @@ function remove_diff_img() {
         "function": "remove_diff_img"
     }
     az.call_api({
-        "url": "http://localhost:5000/call_function/",
+        "url": az.hold_value.config.api_url + "/call_function/",
+        "type" : "GET",
         "parameters": params,
         "done": function(data) {},
         "fail": function(err) {}
@@ -104,7 +108,7 @@ function remove_contours() {
         "function": "remove_contours"
     }
     az.call_api({
-        "url": "http://localhost:5000/call_function/",
+        "url": az.hold_value.config.api_url + "/call_function/",
         "parameters": params,
         "done": function(data) {},
         "fail": function(err) {}
@@ -117,8 +121,9 @@ function count_contours(id) {
         "path": id
     }
     az.call_api({
-        "url": "http://localhost:5000/call_function/",
+        "url": az.hold_value.config.api_url + "/call_function/",
         "parameters": params,
+        "type" : "GET",
         "done": function(data) {
             az.hold_value.current_contours_cnt = data
             setTimeout(function() {

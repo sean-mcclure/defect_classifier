@@ -8,6 +8,9 @@ See the [Medium article](https://towardsdatascience.com/building-an-end-to-end-d
 ### Get the Application
 `git clone https://github.com/sean-mcclure/defect_classifier.git`
 
+### Install Requirements
+run `pip install -r requirements.txt` in your console
+
 ### Add Image Files to Defect Classifier Application
 
     test_temps

@@ -1,5 +1,5 @@
 img_cnt = -1
-var use_path = '../test_temps/'
+var use_path = "test_temps/";
 
 function fetch_image() {
     img_cnt++

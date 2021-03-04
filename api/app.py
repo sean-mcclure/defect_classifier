@@ -3,8 +3,10 @@ import json
 from image_differencing import *
 from classifier import *
 from utility import *
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 def string_to_number(str):
   if("." in str):
