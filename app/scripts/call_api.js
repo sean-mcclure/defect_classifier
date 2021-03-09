@@ -10,7 +10,7 @@ function difference_images() {
         "id": az.hold_value.current_run_id
     }
     az.call_api({
-        "url": az.hold_value.config.api_url + "/call_function/",
+        "url": az.hold_value.config.api_url,
         "parameters": params,
         "type" : "GET",
         "done": function() {
@@ -28,7 +28,7 @@ function difference_images() {
             "id": az.hold_value.current_run_id
         }
         az.call_api({
-            "url": az.hold_value.config.api_url + "/call_function/",
+            "url": az.hold_value.config.api_url,
             "parameters": params,
             "type" : "GET",
             "done": function(data) {
@@ -60,7 +60,7 @@ function predict_defects() {
                         "image_path": cropped_images[pred_cnt]
                     }
                     az.call_api({
-                        "url": az.hold_value.config.api_url + "/call_function/",
+                        "url": az.hold_value.config.api_url,
                         "parameters": params,
                         "type" : "GET",
                         "done": function(data) {
@@ -95,7 +95,7 @@ function remove_diff_img() {
         "function": "remove_diff_img"
     }
     az.call_api({
-        "url": az.hold_value.config.api_url + "/call_function/",
+        "url": az.hold_value.config.api_url,
         "type" : "GET",
         "parameters": params,
         "done": function(data) {},
@@ -108,7 +108,7 @@ function remove_contours() {
         "function": "remove_contours"
     }
     az.call_api({
-        "url": az.hold_value.config.api_url + "/call_function/",
+        "url": az.hold_value.config.api_url,
         "parameters": params,
         "done": function(data) {},
         "fail": function(err) {}
@@ -121,7 +121,7 @@ function count_contours(id) {
         "path": id
     }
     az.call_api({
-        "url": az.hold_value.config.api_url + "/call_function/",
+        "url": az.hold_value.config.api_url,
         "parameters": params,
         "type" : "GET",
         "done": function(data) {
